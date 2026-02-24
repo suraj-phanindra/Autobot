@@ -45,6 +45,3 @@ npm run dev
 | Embeddings | OpenAI text-embedding-3-small |
 | Auth | Supabase Auth |
 
-## License
-
-Proprietary - CompanyInsights.AI
