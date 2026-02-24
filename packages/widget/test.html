@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoBot Widget Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    h1 { color: #1e293b; }
+    p { color: #64748b; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <h1>AutoBot Widget Test Page</h1>
+  <p>This page demonstrates the AutoBot chat widget. Look for the chat bubble in the bottom-right corner.</p>
+  <p>The widget is embedded via a single script tag with data attributes for configuration.</p>
+
+  <script
+    src="./dist/autobot-widget.js"
+    data-api-key="test-key-123"
+    data-api-url="http://localhost:8000/api/v1"
+    data-primary-color="#2563eb"
+    data-greeting="Welcome! Ask me about any vehicle in our inventory."
+  ></script>
+</body>
+</html>

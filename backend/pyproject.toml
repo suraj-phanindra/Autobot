@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "autobot-backend"
+version = "0.1.0"
+description = "AutoBot - Natural Language Vehicle Inventory Search API"
+authors = ["Suraj <suraj@companyinsights.ai>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115"
+uvicorn = {extras = ["standard"], version = "^0.34"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0"}
+asyncpg = "^0.30"
+pydantic = "^2.0"
+pydantic-settings = "^2.0"
+httpx = "^0.28"
+python-multipart = "^0.0.20"
+python-jose = {extras = ["cryptography"], version = "^3.3"}
+pgvector = "^0.3"
+anthropic = "^0.43"
+openai = "^1.60"
+alembic = "^1.14"
+redis = "^5.0"
+tenacity = "^9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-asyncio = "^0.25"
+ruff = "^0.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

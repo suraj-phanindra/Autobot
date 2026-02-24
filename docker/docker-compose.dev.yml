@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: autobot-db
+    environment:
+      POSTGRES_USER: autobot
+      POSTGRES_PASSWORD: autobot_dev_password
+      POSTGRES_DB: autobot
+    ports:
+      - "54322:5432"
+    volumes:
+      - autobot_pgdata:/var/lib/postgresql/data
+      - ../supabase/migrations/001_initial_schema.sql:/docker-entrypoint-initdb.d/001_initial_schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autobot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: autobot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - autobot_redis:/data
+
+volumes:
+  autobot_pgdata:
+  autobot_redis:
